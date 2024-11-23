@@ -1,6 +1,6 @@
 import fitz
 
-#for link to directry
+
 def load_pdf(file_path):
     doc = fitz.open(file_path)
     text = ""
@@ -9,7 +9,7 @@ def load_pdf(file_path):
         text += "\n\n" 
     return text
 
-# for object based file
+
 def load_pdfs(uploaded_file):
     """Loads and extracts text from a PDF uploaded via Streamlit."""
     doc = fitz.open(stream=uploaded_file.read(), filetype="pdf")

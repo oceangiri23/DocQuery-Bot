@@ -15,3 +15,14 @@ def create_prompt(query, context):
     Answer:
     """
     return prompt
+
+def create_prompt_for_form(questions, answers):
+    prompt = f"""Imagine you are engaging in a friendly, natural conversation with a user. 
+    Your task is to ask the user questions based on a set of predefined questions and the responses they have already provided.
+
+    Current Question: {questions}
+    Previous Questions and Answers: {answers}
+
+    Provide an interesting and conversational format for the next question based on this information."""
+    
+    return prompt

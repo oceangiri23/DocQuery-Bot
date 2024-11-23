@@ -53,16 +53,13 @@ def get_answer(question):
     # Retrieve the relevant context from ChromaDB (no need to reprocess the PDF)
     results = find_relevant_context(question, collection)
     
-    # Create a prompt with the context and query
     prompt = create_prompt(query=question, context=results)
-    
-    # Generate the answer using the generative model
     answer = generate_answer(prompt)
     
     return answer
 
 
-# Streamlit UI
+
 st.title("PDF-based Chatbot")
 st.sidebar.header("Upload a PDF to begin")
 uploaded_file = st.sidebar.file_uploader("Upload PDF", type=["pdf"])
@@ -73,7 +70,7 @@ if uploaded_file:
         process_status = process_pdf(uploaded_file)
     st.sidebar.success(process_status)
 
-    # Initialize chat history
+   
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
@@ -90,12 +87,11 @@ if uploaded_file:
         # Add user input to history
         st.session_state.messages.append({"role": "user", "content": user_input})
 
-        # Generate response
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 response = get_answer(user_input)
                 st.markdown(response)
-        # Add assistant response to history
+        
         st.session_state.messages.append({"role": "assistant", "content": response})
 else:
     st.write("Please upload a PDF to start interacting with the chatbot.")
