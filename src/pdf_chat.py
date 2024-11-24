@@ -16,7 +16,7 @@ genai.configure(api_key=api_key)
 google_ef = embedding_functions.GoogleGenerativeAiEmbeddingFunction(api_key=api_key)
 client = chromadb.PersistentClient(path="embeddings/gemini")
 collection = client.get_or_create_collection(name="pdf_rag", embedding_function=google_ef)
-generative_model = genai.GenerativeModel("gemini-1.5-pro-latest")
+generative_model = genai.GenerativeModel("gemini-1.5-flash")
 
 # Define helper functions
 def generate_answer(prompt):

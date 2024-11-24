@@ -8,7 +8,7 @@ from prompt import create_prompt_for_form
 load_dotenv()
 api_key = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=api_key)
-generative_model = genai.GenerativeModel("gemini-1.5-pro-latest")
+generative_model = genai.GenerativeModel("gemini-1.5-flash")
 
 
 def generate_answer(question, answers):
