@@ -44,7 +44,7 @@ Ensure the following are installed:
 
 ### Clone the Repository  
 ```bash
-git clone https://github.com/username/DocumentQueryChatbot.git
+git clone https://github.com/oceangiri23/DocQuery-Bot.git
 cd DocumentQueryChatbot
 ```
 ### Install Dependencies
@@ -60,6 +60,6 @@ cd DocumentQueryChatbot
     },
     {
         "What is your name?": "aman kansakar",
-        "When would you like to book the appointment?": "2024-11-29"
+        "When would you like to book the appointment?": "2024-11-26"
     }
 ] ```
