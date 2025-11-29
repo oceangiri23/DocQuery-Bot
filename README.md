@@ -52,14 +52,3 @@ cd DocumentQueryChatbot
 ### Running the Project Locally
 ``` streamlit run main.py ```
 
-### Example json Output
-```[
-    {
-        "What is your name?": "sagar giri",
-        "When would you like to book the appointment?": "2024-11-29"
-    },
-    {
-        "What is your name?": "aman kansakar",
-        "When would you like to book the appointment?": "2024-11-26"
-    }
-] ```
