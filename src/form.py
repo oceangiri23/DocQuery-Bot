@@ -42,7 +42,6 @@ def add_message(role, content):
 def handle_response():
     user_response = st.session_state.user_input.strip()
     if user_response:
-        # Save user response
         current_question = questions[st.session_state.question_index]
 
         if current_question == questions[1]:  
@@ -70,19 +69,16 @@ def handle_response():
        
         st.session_state.question_index += 1
         st.session_state.user_input = "" 
-        # Ask the next question or end the conversation
         if st.session_state.question_index < len(questions):
             next_question = generate_answer(questions[st.session_state.question_index],st.session_state.messages)
             add_message("bot", next_question)
         else:
             add_message("bot", "Thank you! for the response")
 
-# Start the conversation if it hasn't been started
 if not st.session_state.messages:
     add_message("bot", "Hello! I need some information from you.")
     add_message("bot", questions[0])
 
-# Display the chat messages
 for message in st.session_state.messages:
     if message["role"] == "bot":
         with st.chat_message("assistant"):
@@ -91,5 +87,4 @@ for message in st.session_state.messages:
         with st.chat_message("user"):
             st.markdown(message["content"])
 
-# Input box for user response with `on_change` callback
 st.text_input("Type your response here...", key="user_input", on_change=handle_response)
